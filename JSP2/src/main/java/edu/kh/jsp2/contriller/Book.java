@@ -1,5 +1,5 @@
-package edu.kh.jsp2.contriller;
+const btn = document.querySelector("#btn");
 
-public class Book {
-
-}
+btn.addEventListener("click", () => {
+  alert("JS 연결 확인 완료");
+})
