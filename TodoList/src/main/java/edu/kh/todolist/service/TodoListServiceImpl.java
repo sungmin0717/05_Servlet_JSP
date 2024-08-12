@@ -14,7 +14,7 @@ import edu.kh.todolist.dto.Todo;
 
 public class TodoListServiceImpl implements TodoListService{
 
-private TodoListDao dao = null;
+	private TodoListDao dao = null;
 	
 	// 기본 생성자
 	public TodoListServiceImpl() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -25,14 +25,18 @@ private TodoListDao dao = null;
 	
 	@Override
 	public Map<String, Object> todoListFullView() {
+		//map k:v 이루어져있으며 v 는 중복가능
+		// String object로 이루어져 있음
 		
 		// 할 일 목록 얻어오기 
 		List<Todo> todoList = dao.todoListFullView();
-		
+		//Todo클래스에  dao.todoListfullView() 를 가져와 todoList에 저장
 		
 		// 완료된 할 일 개수 카운트
 		int completeCount = 0;
-
+		
+		
+		
 		for(Todo todo : todoList) {
 			if(todo.isComplete()) {
 				completeCount++;
@@ -63,22 +67,9 @@ private TodoListDao dao = null;
 	//-------------------------------------------------------------------------------------------------
 	
 	@Override
-	public String todoDetailView(int index) {
+	public Todo todoDetailView(int index) {
 		Todo todo = dao.todoDetailView(index);
-		
-		if(todo == null) return null;
-		
-		StringBuilder sb = new StringBuilder(); 
-		
-		sb.append("--------------------------------------------\n");
-		sb.append( String.format("제목 : %s\n", todo.getTitle()) );
-		sb.append( String.format("등록일 : %s\n", dateFormat(todo.getRegDate())) );		
-		sb.append( String.format("완료여부 : %s\n", todo.isComplete() ? "O" : "X") );
-		sb.append("\n[세부 내용]\n");
-		sb.append("--------------------------------------------\n");
-		sb.append( String.format("%s\n", todo.getDetail()) );
-		
-		return sb.toString();
+		return todo;
 	}
 	
 	//-------------------------------------------------------------------------------------------------

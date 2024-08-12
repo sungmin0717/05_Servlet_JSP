@@ -32,7 +32,7 @@
 
     <tbody>
 
-      <c:forEach 
+      <c:forEach>
           var="book" 
           items="${bookList}"
           varStatus="vs">

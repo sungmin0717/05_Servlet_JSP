@@ -19,7 +19,9 @@ private final String FILE_PATH = "TodoList.dat";
 	private List<Todo> todoList = null;
 	
 	private ObjectOutputStream oos = null;
+	//기본 자료형과 객체를 직렬화된데이터로 저장하기 위해 사용
 	private ObjectInputStream	 ois = null;
+	//객체를 직접 입출력할수 있도록 해주는 객체.
 	
 	
 	// 기본 생성자
@@ -27,7 +29,8 @@ private final String FILE_PATH = "TodoList.dat";
 		
 		// TodoList.dat 파일이 없으면 새로운 List 생성, 있으면 읽어오기
 		File file = new File(FILE_PATH);
-		
+		//파일 
+		//만약 파일이 존재하지 않는다면 투두리스트 = 새로운배열리스트
 		if(!file.exists()) {
 			todoList = new ArrayList<Todo>();
 			
@@ -132,6 +135,7 @@ private final String FILE_PATH = "TodoList.dat";
 	
 	@Override
 	public boolean todoUpdate(int index, String title, String detail) throws FileNotFoundException, IOException {
+	
 		
 		// 수정된 내용 + 이전 Todo의 완료 여부, 등록일을 담은 Todo 객체 생성 
 		Todo newTodo = new Todo();
