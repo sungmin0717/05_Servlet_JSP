@@ -22,8 +22,8 @@
 
 <h1>회원가입</h1>
 
-<form action="/join" method="post">
-
+<form action="/join" method="post"> 
+<!-- form 제출양식 제출하는 태그  action 에 작성된 곳으로 서버로 제출한다.-->
 아이디 : <input type="text" name="memberId" required><br>
 
 비밀번호 : <input type="password" name="memberPw" required><br>
