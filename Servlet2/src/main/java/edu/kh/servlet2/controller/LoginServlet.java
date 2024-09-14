@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
+//매핑 주소가 잘못되어있다.
 public class LoginServlet extends HttpServlet {
 
 	// doPost 자동완성을 하면 오버라이딩 추천.
